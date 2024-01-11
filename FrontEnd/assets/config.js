@@ -1,15 +1,15 @@
-let projets ; 
-const divFilter = document.getElementById("filter-bar")
+let projets; 
+const divFilter = document.getElementById("filter-bar");
 const divGallery = document.querySelector(".gallery");
 
 async function fetchWorks() {
-    const response = await fetch("http://localhost:5678/api/works")
-    projets = await response.json()
-    return projets   
+    const response = await fetch("http://localhost:5678/api/works");
+    projets = await response.json();
+    return projets;
 }
 
 fetchWorks().then(projets => {
-    afficherElements(projets)
+    afficherElements(projets);
 })
 
 function afficherElements(projets) {
@@ -29,10 +29,6 @@ function afficherElements(projets) {
         figure.appendChild(caption);
 
         divGallery.appendChild(figure);
-
-        
-
-        
     }
 }
 
@@ -117,54 +113,3 @@ btnHR.addEventListener("click", () =>{
     afficherElements(projetsHR);
 
 })
-
-
-
-
-/*btnsFiltres.forEach(element => {
-    let btn = document.createElement("button") ;
-    btn.innerText = element.name ;
-    btn.classList.add("button") ;
-    btn.classList.add(`${element.class}`) ;
-    console.log(element);
-    
-
-    // mise en place des addEventListener 
-    btn.addEventListener("click", () => {
-        if (element.id === 1) {
-            
-
-            console.log(element.class);
-        }
-        if (element.id === 2) {
-            console.log(element.class);
-        }
-        if (element.id === 3) {
-            console.log(element.class);
-        }
-        if (element.id === 4) {
-            console.log(element.class);
-        }
-    })
-     
-
-
-    divFilter.appendChild(btn) ;
-
-});*/
-
-
-// mise en place des addlistener 
-
-
-
-
-
-/*
-<div id="filter-bar" >
-			<button class="button" id="btnTous">Tous</button>
-			<button class="button" id="btnObjets">Objets</button>
-			<button class="button" id="btnAppartements">Appartements</button>
-			<button class="button" id="btnH&A">Hôtels & Restaurants</button>
-</div>
-*/
