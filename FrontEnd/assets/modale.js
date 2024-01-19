@@ -1,8 +1,7 @@
 const body = document.querySelector("body");
 const header = document.querySelector("header");
-const introduction = document.querySelector("#introduction");
 const portfolioTITLE = document.querySelector("#portfolio h2");
-console.log(portfolio);
+
 
 
 //Creation de la bannière et bouton édition//
@@ -26,6 +25,7 @@ const createEditingButton = (id) => {
 };
 
 
+//Mise en place des éléments admin 
 if (localStorage.token) {
     createBannner();
     body.insertBefore(editingBanner, header);
