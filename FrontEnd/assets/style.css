@@ -273,3 +273,28 @@ header h1 a {
 	gap: 5px;
 	font-family: "Work Sans";
 }
+
+/* Modale */
+.modal{
+	font-family: "Work Sans";
+}
+
+.modal .modaldelete {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+.modaldelete .modal_closing_icon {
+	display: flex;
+	flex-direction: row-reverse;
+}
+
+.modaldelete h3 {
+	text-align: center;
+}
+
+.modaldelete hr {
+	width: 100%;
+}
+

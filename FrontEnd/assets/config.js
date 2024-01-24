@@ -1,9 +1,10 @@
 let projets; 
 const divFilter = document.getElementById("filter-bar");
 const divGallery = document.querySelector(".gallery");
+const APIpathWorks = "http://localhost:5678/api/works"
 
 async function fetchWorks() {
-    const response = await fetch("http://localhost:5678/api/works");
+    const response = await fetch(APIpathWorks);
     projets = await response.json();
     return projets;
 }
