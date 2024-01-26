@@ -70,17 +70,58 @@
 		</ul>
 	</nav>
 </footer>
+
 <!-- Modales -->
+
 <dialog class="modal">
 	<div id="modaldelete" class="modaldelete">
-		<i class="fa-solid fa-xmark modal_closing_icon"></i>
+		<i class="fa-solid fa-xl fa-xmark modal_closing_icon"></i>
 		<h3>Galerie photo</h3>
 		<div class="modal_content"></div>
 		<hr>
-		<input type="submit" value="Ajouter une photo">
+		<input type="submit" value="Ajouter une photo" class="add-photo">
 	</div>
-	<div class="modaladding">
+
+	
+	<div class="modaladding" id="modaladding">
+
+		<div class="icons">
+			<i class="fa-solid fa-arrow-left-long previous_icon"></i>
+			<i class="fa-solid fa-xmark modal_closing_icon"></i>
+		</div>
 		
+
+		<h3>Ajout photo</h3>
+
+		<form class="formModale"> 
+			<div class="uploadcontainer">
+				<div id="image">
+					<img src="" alt="Image Preview" class="image_preview">
+				</div>
+				<i class="fa-regular fa-image fa-xl" id="fa-image"></i>
+				
+				<label for="image_upload">+ Ajouter photo</label>
+				<input type="file" id="image_upload" accept=".png, .jpg" aria-valuemax="4mo">
+				
+				<div class="TexteUpload">
+					<p id="text_format">jpg,png: 4mo max</p>
+				</div>
+			</div>
+			<div class="TitleImageInput">
+				<label class= "label" for="Titleinput">Titre</label>
+				<input type="text" name="title" id="Titleinput">
+			</div>
+			<div class="CategoryImageInput">
+			<label for="category_input">Catégorie</label>
+			<select name="category" id="category_input">
+				<option value="1">Objets</option>
+				<option value="2">Appartements</option>
+				<option value="3">Hotels & restaurants</option>
+			</select>
+			</div>
+			<div class="submit_overline"></div>
+			<input type="submit" id="modal_form_validation" value="Valider" class="inactive_button">
+		</form>
 	</div>
 </dialog>
 </body>
