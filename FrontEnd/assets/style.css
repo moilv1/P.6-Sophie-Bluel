@@ -200,7 +200,6 @@ input[type="submit"]{
 	font-family: 'Syne';
 	font-weight: 700;
 	color: white;
-	background-color: #1D6154;
 	margin : 2em auto ;
 	width: 180px;
 	text-align: center;
@@ -275,6 +274,10 @@ header h1 a {
 	font-family: "Work Sans";
 	text-decoration: underline;
 }
+.Connect_button{
+	background: #1D6154;
+	border: none;
+}
 
 /* Modale */
 .modal{
@@ -314,6 +317,10 @@ header h1 a {
 .modaldelete hr {
 	width: 70%;
 }
+.modaldelete .add-photo{
+	border: none;
+	background:#1D6154 ;
+}
 
 .modal_content{
 	justify-content: center;
@@ -336,8 +343,10 @@ header h1 a {
 }
 .add-photo{
 	justify-content: center;
-	padding: 10px 20px;
+	padding: 10px 20px;	
 }
+
+
 
 .modaladding{
 	visibility: hidden;
@@ -470,3 +479,12 @@ header h1 a {
 	box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.09);
 	
 }
+.inactive_button{
+	justify-content: center;
+	padding: 10px 20px;
+	border: none;
+	background-color: #A7A7A7;
+}
+
+
+

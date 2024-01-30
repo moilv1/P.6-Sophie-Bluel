@@ -18,6 +18,10 @@ const text_format =document.getElementById("text_format");
 const titre = document.getElementById("Titleinput");
 const select = document.getElementById("category_input");
 const formModale = document.querySelector(".formModale");
+const valide_button = document.getElementById("modal_form_validation");
+
+
+
 
  
 //Creation de la bannière et bouton édition//
@@ -50,14 +54,14 @@ if (localStorage.token) {
 // Déconnexion 
 function removeToken() {
     localStorage.removeItem("token");
-}
+};
 window.addEventListener("unload", removeToken);
 
 
 function openModal() {
     addingProjets();
     modalBox.showModal();
-}
+};
 // Ouverture de la Modale
 editingButton.addEventListener("click", () => {
     openModal();
@@ -75,31 +79,34 @@ closetrig2.addEventListener("click", ModalClose );
 
 modalBox.addEventListener("click", (event) => {
     if(event.target === modalBox) {
-        ModalClose()
-    }
-})
+        ModalClose();
+    };
+});
 
 // ouverture modal addingphoto
 function Gotomodaladding() {
     modalAdding.classList.replace("modaladding", "modaladding_active");
     modalDelete.classList.replace("modaldelete", "modaldelete_disabled");
-    ResFormAdding()
-}
-
-addButton.addEventListener("click", Gotomodaladding )
+    ResFormAdding();
+};
+addButton.addEventListener("click", Gotomodaladding );
 
 // retour à la modalDelete
 function GoBackModalDelete() {
     modalAdding.classList.replace("modaladding_active", "modaladding");
     modalDelete.classList.replace("modaldelete_disabled", "modaldelete");
-    ResFormAdding()
-}
+    ResFormAdding();
+};
+
 previous_icon.addEventListener("click", GoBackModalDelete);
 
 // reset formulaire modaladding 
 function ResFormAdding() {
     Image_preview.src = "";
-    boxImage_preview.style.display = "none"
+    Image_upload.value = ""
+    titre.value = "";
+    valide_button.style.background = "#A7A7A7";
+    boxImage_preview.style.display = "none";
     LabelUpload.style.visibility = "visible";
     fa_image.style.visibility = "visible";
     text_format.style.visibility = "visible";
@@ -115,7 +122,7 @@ function addingProjets() {
             return reponse.json();
         } else {
             throw new Error("echec lors de l'appel API.");
-        }
+        };
     })
     .then((data) => {
         data.forEach((element) => {
@@ -147,7 +154,7 @@ function addingProjets() {
 
             modalContent.appendChild(Card);
             Card.appendChild(image);
-            Card.appendChild(description)
+            Card.appendChild(description);
         })
         
     })
@@ -167,10 +174,18 @@ Image_upload.addEventListener('change', function () {
             text_format.style.visibility = "hidden";
 
             Image_preview.setAttribute("src", this.result);
+            
         });
         reader.readAsDataURL(file);
-    } 
+    }
 });
+
+///verification des champs pour coloration du boutton "valider"
+formModale.addEventListener("input", () => {
+    if (titre.value.length >= 1 && Image_upload.value != "") {
+        valide_button.style.background = "#1D6154"
+    }
+})
 
 // ajout projet dans l'api 
 formModale.addEventListener("submit", (event) => {
@@ -190,10 +205,8 @@ formModale.addEventListener("submit", (event) => {
     }).then((reponse) => {
       if (reponse.ok) {
         alert("Projet ajouté avec succès !");
-        removeGalleryPreview()
       } else {
         alert("Le formulaire est incomplet!");
       }
     });
 });
-
