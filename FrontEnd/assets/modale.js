@@ -1,4 +1,5 @@
 const body = document.querySelector("body");
+const modal_trigger = document.querySelector("modal_trigger");
 const header = document.querySelector("header");
 const portfolioTITLE = document.querySelector("#portfolio h2");
 const modalBox = document.querySelector("dialog");
@@ -31,7 +32,7 @@ let editingButton;
 const createBannner = () => {
     editingBanner = document.createElement("div");
     editingBanner.classList.add("editingbanner");
-    editingBanner.innerHTML = `<i class="fa-regular fa-pen-to-square modal_trigger"></i>
+    editingBanner.innerHTML = `<i class="fa-regular fa-pen-to-square"></i>
     <p>Mode édition</p>`;
 };
 
@@ -57,23 +58,24 @@ function removeToken() {
 };
 window.addEventListener("unload", removeToken);
 
-
+// Ouverture de la Modale
 function openModal() {
     addingProjets();
     modalBox.showModal();
 };
-// Ouverture de la Modale
+
 editingButton.addEventListener("click", () => {
     openModal();
     modalAdding.classList.replace("modaladding_active", "modaladding");
     modalDelete.classList.replace("modaldelete_disabled", "modaldelete");
 });
 
+// Fermeture de la Modale 
 function ModalClose() {
     modalContent.innerHTML = "";
     modalBox.close();
 };
-// Fermeture de la Modale 
+
 closetrig1.addEventListener("click", ModalClose );
 closetrig2.addEventListener("click", ModalClose );
 
@@ -83,7 +85,9 @@ modalBox.addEventListener("click", (event) => {
     };
 });
 
+
 // ouverture modal addingphoto
+
 function Gotomodaladding() {
     modalAdding.classList.replace("modaladding", "modaladding_active");
     modalDelete.classList.replace("modaldelete", "modaldelete_disabled");
@@ -110,7 +114,6 @@ function ResFormAdding() {
     LabelUpload.style.visibility = "visible";
     fa_image.style.visibility = "visible";
     text_format.style.visibility = "visible";
-
 }
 
 // ajout des projets dans la modal 
